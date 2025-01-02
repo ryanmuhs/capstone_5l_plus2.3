@@ -19,7 +19,9 @@ class User extends Authenticatable
      */
     protected $fillable = [
         'name',
+        'username',
         'email',
+        'role',
         'password',
     ];
 
@@ -32,6 +34,24 @@ class User extends Authenticatable
         'password',
         'remember_token',
     ];
+
+    public function antrian(){
+        return $this->hasMany(Antrian::class, 'user_id', 'id');
+    }
+
+    public function pasien(){
+        return $this->hasOne(Pasien::class, 'user_id', 'id');
+    }
+ 
+     public function scopeDoctors($query)
+     {
+         return $query->where('role', 'dokter');
+     }
+ 
+     public function scopeAdmins($query)
+     {
+         return $query->where('role', 'admin');
+     }
 
     /**
      * The attributes that should be cast.
