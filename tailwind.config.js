@@ -15,6 +15,11 @@ export default {
                 sans: ['Figtree', ...defaultTheme.fontFamily.sans],
             },
         },
+        // colors: {
+        //     'tailblue': '#4A9DA6',
+        //     'white': '#D9D9D9',
+        //     'highlight': '#7BC862'
+        // }
     },
 
     plugins: [forms],
